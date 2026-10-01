@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Relevo Generacional · Fórum UPB</title>
+  </head>
+  <body>
+    <main id="lienzo"></main>
+
+    <!-- Capa de texto: vive en coordenadas del escenario 1920×1080 y se escala igual que el canvas -->
+    <section id="ui">
+      <div id="textos"></div>
+      <aside id="leyenda">
+        <h3>La red bajo la ilustración</h3>
+        <ul>
+          <li><i class="l-grupo"></i>vínculo de grupo · confianza alta</li>
+          <li><i class="l-puente"></i>puente entre grupos · confianza baja</li>
+          <li><i class="l-tension"></i>tensión: comprimido · reposo · estirado</li>
+          <li><i class="l-ancla"></i>ancla: punto de encuentro / amarre</li>
+          <li><i class="l-pasa"></i>quien pasa: solo lo guía su carril</li>
+        </ul>
+      </aside>
+      <nav id="nav">
+        <span id="contador">1 / 13</span>
+        <button id="atras" type="button">Atrás</button>
+        <button id="siguiente" type="button">Siguiente</button>
+      </nav>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+@import '@fontsource/archivo/400.css';
+@import '@fontsource/archivo/600.css';
+@import '@fontsource/archivo-black/400.css';
+
+:root {
+  --tinta: #1f2226;
+  --tinta-suave: #4a4f55;
+  --acento: #b3262e; /* rojo de la estola de grados (FOTO 1) */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #16181b;
+  font-family: 'Archivo', system-ui, sans-serif;
+  color: var(--tinta);
+}
+
+#lienzo canvas { display: block; }
+
+/* El escenario lógico mide 1920×1080; main.js le aplica translate+scale */
+#ui {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.texto {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 900ms ease, transform 900ms ease;
+}
+.texto.visible { opacity: 1; transform: none; }
+
+.etiqueta {
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: 0.04em;
+  color: var(--tinta-suave);
+  margin-bottom: 18px;
+}
+
+.titular {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 96px;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.bajada {
+  font-size: 40px;
+  font-weight: 400;
+  margin-top: 16px;
+  max-width: 1000px;
+}
+
+.pregunta {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 84px;
+  line-height: 1.02;
+  max-width: 1150px;
+}
+.pregunta em { font-style: normal; color: var(--acento); }
+
+#nav {
+  position: absolute;
+  right: 56px;
+  bottom: 40px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  pointer-events: auto;
+  opacity: 0.35;
+  transition: opacity 300ms;
+}
+#nav:hover { opacity: 1; }
+
+#contador {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-right: 10px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+#nav button {
+  font: 600 22px 'Archivo', sans-serif;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--tinta);
+  cursor: pointer;
+}
+#nav button:disabled { opacity: 0.4; cursor: default; }
+
+/* Radiografía (tecla E) */
+#leyenda {
+  position: absolute;
+  right: 56px;
+  top: 56px;
+  width: 520px;
+  padding: 28px 32px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 14px;
+  opacity: 0;
+  transition: opacity 400ms;
+}
+#leyenda.visible { opacity: 1; }
+#leyenda h3 { font: 600 28px 'Archivo', sans-serif; margin-bottom: 14px; }
+#leyenda ul { list-style: none; display: grid; gap: 10px; }
+#leyenda li { font-size: 22px; display: flex; align-items: center; gap: 14px; color: var(--tinta-suave); }
+#leyenda i { flex: none; display: inline-block; width: 44px; height: 4px; background: #787878; }
+#leyenda .l-puente { height: 0; background: none; border-top: 3px dashed #787878; }
+#leyenda .l-tension { height: 6px; background: linear-gradient(90deg, #4a8ee0, #787878, #e04848); }
+#leyenda .l-ancla { width: 16px; height: 16px; margin: 0 14px; background: none; border: 3px solid #b3262e; transform: rotate(45deg); }
+#leyenda .l-pasa { width: 14px; height: 14px; margin: 0 15px; border-radius: 50%; background: #1f9e96; }
